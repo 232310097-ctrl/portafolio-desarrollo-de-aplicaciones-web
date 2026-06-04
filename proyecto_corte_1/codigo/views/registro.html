@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Registro de Usuario</title>
+
+<script>
+
+/*
+Función que valida los campos del formulario
+antes de enviarlos al servidor.
+*/
+
+function validarFormulario(){
+
+// Obtener valores del formulario
+let nombre = document.forms["formRegistro"]["nombre"].value;
+let email = document.forms["formRegistro"]["email"].value;
+let password = document.forms["formRegistro"]["password"].value;
+
+/*
+Verificar que los campos no estén vacíos.
+Si alguno está vacío se muestra una alerta
+y el formulario no se envía.
+*/
+
+if(nombre == "" || email == "" || password == ""){
+
+alert("Todos los campos son obligatorios");
+
+return false;
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Registro de Usuario</h2>
+
+<!--
+Formulario que envía los datos al archivo PHP
+encargado de registrar el usuario
+-->
+
+<form name="formRegistro"
+action="../php/registrar_usuario.php"
+method="POST"
+onsubmit="return validarFormulario()">
+
+Nombre
+<input type="text" name="nombre"><br>
+
+Email
+<input type="email" name="email"><br>
+
+Password
+<input type="password" name="password"><br>
+
+<button type="submit">Registrarse</button>
+
+</form>
+
+</body>
+</html>

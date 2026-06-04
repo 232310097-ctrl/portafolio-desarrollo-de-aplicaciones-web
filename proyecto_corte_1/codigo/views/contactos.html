@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Registrar Contacto</title>
+
+<script>
+
+/*
+Función para validar que los campos
+del formulario no estén vacíos
+*/
+
+function validarContacto(){
+
+let nombre = document.forms["formContacto"]["nombre"].value;
+let telefono = document.forms["formContacto"]["telefono"].value;
+let email = document.forms["formContacto"]["email"].value;
+
+// Verificar que ningún campo esté vacío
+if(nombre == "" || telefono == "" || email == ""){
+
+alert("Todos los campos son obligatorios");
+
+return false;
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Registro de Contactos</h2>
+
+<!--
+Formulario que envía los datos al archivo PHP
+encargado de guardar el contacto en la base de datos
+-->
+
+<form name="formContacto"
+action="../php/guardar_contacto.php"
+method="POST"
+onsubmit="return validarContacto()">
+
+<label>Nombre</label><br>
+<input type="text" name="nombre"><br><br>
+
+<label>Telefono</label><br>
+<input type="text" name="telefono"><br><br>
+
+<label>Email</label><br>
+<input type="email" name="email"><br><br>
+
+<button type="submit">Guardar Contacto</button>
+
+</form>
+
+<br>
+
+<a href="../index.php">Volver al inicio</a>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Registrar Cita</title>
+
+<script>
+
+/*
+Función que valida los campos del formulario
+antes de enviarlos al servidor
+*/
+
+function validarCita(){
+
+let contacto = document.forms["formCita"]["contacto"].value;
+let fecha = document.forms["formCita"]["fecha"].value;
+let descripcion = document.forms["formCita"]["descripcion"].value;
+
+if(contacto == "" || fecha == "" || descripcion == ""){
+
+alert("Todos los campos son obligatorios");
+
+return false;
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Registro de Citas</h2>
+
+<!--
+Formulario que permite registrar una cita
+asociada a un contacto existente
+-->
+
+<form name="formCita"
+action="../php/guardar_cita.php"
+method="POST"
+onsubmit="return validarCita()">
+
+<label>ID del contacto</label><br>
+<input type="number" name="contacto"><br><br>
+
+<label>Fecha de la cita</label><br>
+<input type="date" name="fecha"><br><br>
+
+<label>Descripcion</label><br>
+<input type="text" name="descripcion"><br><br>
+
+<button type="submit">Guardar Cita</button>
+
+</form>
+
+<br>
+
+<a href="../index.php">Volver al inicio</a>
+
+</body>
+
+</html>
